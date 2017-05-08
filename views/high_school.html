@@ -1,0 +1,31 @@
+GPA
+<md-slider min="0" max="4" ng-model="student.gpa" ng-init="student.gpa = 2;" aria-label="GPA" step=".1" md-discrete></md-slider>
+
+<div layout="row" layout-align="space-between center">
+    <span>{{student.test_type}} score</span>
+    <div>
+        <md-input-container>
+            <md-select ng-model="student.test_type" ng-init="student.test_type = ''" placeholder="Select a test">
+                <md-option ng-value="ACT">ACT</md-option>
+                <md-option ng-value="SAT">SAT</md-option>
+            </md-select>
+        </md-input-container>
+    </div>
+</div>
+<md-slider ng-if="student.test_type" min="0" max="36" ng-model="student.test_score" ng-init="student.test_score = 18;" aria-label="GPA" step="1" md-discrete></md-slider>
+
+<div class="question">
+    <div class="text">After graduating from high school, will this be your first year in college?</div>
+    <md-radio-group ng-model="student.isFreshman">
+        <md-radio-button value="true">Yes, this is my first year in college.</md-radio-button>
+        <md-radio-button value="false">No, I am transferring from another college.</md-radio-button>
+    </md-radio-group>
+</div>
+
+<div class="question">
+    <div class="text">Do you plan to live on campus in the residence hall?</div>
+    <md-radio-group ng-model="student.isResident">
+        <md-radio-button value="true">Yes, I will live in the residence hall.</md-radio-button>
+        <md-radio-button value="false">No, I will live in the community.</md-radio-button>
+    </md-radio-group>
+</div>

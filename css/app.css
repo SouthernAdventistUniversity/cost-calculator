@@ -1,0 +1,31 @@
+.section_title {
+  height: 40px;
+  padding-left: 20px;
+  font-weight: 600;
+  border-left: 4px solid #3f51b5; }
+
+#tabContent {
+  display: block;
+  padding: 20px; }
+  #tabContent .question {
+    margin-bottom: 20px; }
+    #tabContent .question .text {
+      font-size: 12px; }
+    #tabContent .question md-radio-group md-radio-button {
+      margin: 13px 13px 0;
+      font-size: 12px; }
+      #tabContent .question md-radio-group md-radio-button .md-off, #tabContent .question md-radio-group md-radio-button .md-on {
+        width: 15px !important;
+        height: 15px !important;
+        top: 3px !important;
+        left: 3px !important; }
+
+.prev, .next {
+  font-size: 12px;
+  text-transform: initial;
+  box-shadow: none !important; }
+
+.next {
+  margin-right: 20px; }
+
+/*# sourceMappingURL=app.css.map */

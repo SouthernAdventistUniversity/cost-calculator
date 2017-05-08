@@ -1,0 +1,36 @@
+@import '_variables.sass'
+
+
+.section_title
+    height: 40px
+    padding-left: 20px
+    font-weight: 600
+    border-left: 4px solid $theme-color 
+
+#tabContent
+    display: block
+    padding: 20px
+    .question
+        margin-bottom: 20px
+        .text
+            font-size: 12px
+        md-radio-group
+            md-radio-button
+                margin: 13px 13px 0
+                font-size: 12px
+                .md-off
+                    width: 15px !important
+                    height: 15px !important
+                    top: 3px !important
+                    left: 3px !important
+                .md-on
+                    @extend .md-off
+
+
+.prev
+    font-size: 12px
+    text-transform: initial
+    box-shadow: none !important
+.next
+    @extend .prev
+    margin-right: 20px

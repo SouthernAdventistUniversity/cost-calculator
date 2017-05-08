@@ -1,0 +1,12 @@
+* {
+  font-family: Open Sans !important; }
+
+md-tabs-wrapper {
+  display: none; }
+
+md-slider[md-discrete] .md-sign, md-slider[md-discrete] md-slider[md-discrete]:after {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0) scale(1);
+  transform: translate3d(0, 0, 0) scale(1); }
+
+/*# sourceMappingURL=app.css.map */

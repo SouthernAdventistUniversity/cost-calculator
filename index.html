@@ -1,0 +1,59 @@
+<html ng-app="CostCalculator">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/global/app.css">
+    <title>Cost Calculator</title>
+</head>
+
+<body ng-controller="AppController as app" ng-cloak>
+
+    <md-tabs md-selected="selectedIndex" md-dynamic-height md-no-ink, md-no-ink-bar>
+        <md-tab ng-repeat="tab in tabs" md-active="$index == activeTab" ng-disabled="$index != activeTab">
+            {{tab.title}}
+            <md-tab-body>
+                <div class="section_title" layout="row" layout-align="start center">
+                    <span>{{tab.title}}</span>
+                </div>
+                <ng-include src="tab.url" id="tabContent"></ng-include>
+            </md-tab-body>
+        </md-tab>
+    </md-tabs>
+
+
+
+    <div layout="row" layout-align="space-between center">
+        <div></div>
+        <div>
+            <md-button class="md-primary md-raised prev" ng-disabled="activeTab == 0" ng-click="activeTab = activeTab - 1">Previous</md-button>
+            <md-button class="md-primary md-raised next" ng-disabled="activeTab == tabs.length - 1" ng-click="activeTab = activeTab + 1">Continue</md-button>
+        </div>
+    </div>
+
+    <pre ng-repeat="(key, value) in student">{{key}}: {{value}}</pre>
+
+
+
+
+
+
+    <!-- Angular -->
+    <script src="./node_modules/angular/angular.min.js"></script>
+    <script src="./node_modules/angular-route/angular-route.js"></script>
+    <script src="./node_modules/angular-aria/angular-aria.js"></script>
+    <script src="./node_modules/angular-animate/angular-animate.js"></script>
+    <script src="./node_modules/angular-material/angular-material.js"></script>
+
+    <!-- Modules -->
+    <script src="js/modules/app.js"></script>
+
+    <!-- Controllers -->
+    <script src="js/controllers/app.js"></script>
+</body>
+
+</html>
