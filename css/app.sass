@@ -3,28 +3,34 @@
 
 .section_title
     height: 40px
-    padding-left: 20px
+    padding-left: 16px
     font-weight: 600
     border-left: 4px solid $theme-color 
 
+md-radio-group
+    md-radio-button
+        margin: 13px 13px 0
+        font-size: 12px
+        .md-off
+            width: 15px !important
+            height: 15px !important
+            top: 3px !important
+            left: 3px !important
+        .md-on
+            @extend .md-off
+
 #tabContent
     display: block
-    padding: 20px
-    .question
-        margin-bottom: 20px
-        .text
-            font-size: 12px
-        md-radio-group
-            md-radio-button
-                margin: 13px 13px 0
+    .sub_text
+        font-size: 11px
+        color: #797979
+    .content_holder
+        padding: 20px
+        .question
+            margin-bottom: 20px
+            .text
                 font-size: 12px
-                .md-off
-                    width: 15px !important
-                    height: 15px !important
-                    top: 3px !important
-                    left: 3px !important
-                .md-on
-                    @extend .md-off
+
 
 
 .prev

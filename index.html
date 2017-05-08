@@ -17,9 +17,6 @@
         <md-tab ng-repeat="tab in tabs" md-active="$index == activeTab" ng-disabled="$index != activeTab">
             {{tab.title}}
             <md-tab-body>
-                <div class="section_title" layout="row" layout-align="start center">
-                    <span>{{tab.title}}</span>
-                </div>
                 <ng-include src="tab.url" id="tabContent"></ng-include>
             </md-tab-body>
         </md-tab>
@@ -35,7 +32,7 @@
         </div>
     </div>
 
-    <pre ng-repeat="(key, value) in student">{{key}}: {{value}}</pre>
+    <!-- <pre ng-repeat="(key, value) in student">{{key}}: {{value}}</pre> -->
 
 
 

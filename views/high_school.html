@@ -1,31 +1,42 @@
-GPA
-<md-slider min="0" max="4" ng-model="student.gpa" ng-init="student.gpa = 2;" aria-label="GPA" step=".1" md-discrete></md-slider>
+<div class="section_title" layout="row" layout-align="start center">
+    <span ng-if="student.isFreshman">{{tab.title}}</span>
+    <span ng-if="!student.isFreshman">Transfer Information</span>
+</div>
 
-<div layout="row" layout-align="space-between center">
-    <span>{{student.test_type}} score</span>
-    <div>
-        <md-input-container>
-            <md-select ng-model="student.test_type" ng-init="student.test_type = ''" placeholder="Select a test">
-                <md-option ng-value="ACT">ACT</md-option>
-                <md-option ng-value="SAT">SAT</md-option>
-            </md-select>
-        </md-input-container>
+<div class="content_holder">
+    GPA
+    <md-slider min="0" max="4" ng-model="student.gpa" aria-label="GPA" step=".1" md-discrete></md-slider>
+
+    <div layout="row" layout-align="space-between center">
+        <span ng-if="student.test_type">{{student.test_type}} score</span>
+        <span ng-if="!student.test_type">Select a test</span>
+        <div>
+            <md-radio-group ng-model="student.test_type" layout="row">
+                <md-radio-button value="ACT">ACT</md-radio-button>
+                <md-radio-button value="SAT">SAT</md-radio-button>
+            </md-radio-group>
+        </div>
     </div>
-</div>
-<md-slider ng-if="student.test_type" min="0" max="36" ng-model="student.test_score" ng-init="student.test_score = 18;" aria-label="GPA" step="1" md-discrete></md-slider>
 
-<div class="question">
-    <div class="text">After graduating from high school, will this be your first year in college?</div>
-    <md-radio-group ng-model="student.isFreshman">
-        <md-radio-button value="true">Yes, this is my first year in college.</md-radio-button>
-        <md-radio-button value="false">No, I am transferring from another college.</md-radio-button>
-    </md-radio-group>
-</div>
+    <md-slider ng-disabled="!student.test_type" min="{{student.test_type == 'ACT' ? 0 : 400}}" max="{{student.test_type == 'ACT' ? 36 : 1600}}" ng-model="student.test_score" aria-label="Test Score" step="{{student.test_type == 'ACT' ? 1 : 10}}" md-discrete></md-slider>
 
-<div class="question">
-    <div class="text">Do you plan to live on campus in the residence hall?</div>
-    <md-radio-group ng-model="student.isResident">
-        <md-radio-button value="true">Yes, I will live in the residence hall.</md-radio-button>
-        <md-radio-button value="false">No, I will live in the community.</md-radio-button>
-    </md-radio-group>
+    <div class="question" ng-if="student.isFreshman">
+        <div class="text">From what type of high school will you or did you graduate?</div>
+        <md-radio-group ng-model="student.school_type">
+            <md-radio-button value="sda">Seventh-day Adventist Academy</md-radio-button>
+            <md-radio-button value="public">Public High School</md-radio-button>
+            <md-radio-button value="home">Home School</md-radio-button>
+            <md-radio-button value="private">Private School</md-radio-button>
+            <md-radio-button value="ged">GED</md-radio-button>
+        </md-radio-group>
+    </div>
+
+    <div class="question" ng-if="student.isFreshman">
+        <div class="text">Have you participated in any of the following leadership roles?</div>
+        <div class="sub_text">Senior class president, vice-president, or pastor; student association president, vice-president, religious vice-president, or equivalent</div>
+        <md-radio-group ng-model="student.isLeader">
+            <md-radio-button ng-value="true">Yes</md-radio-button>
+            <md-radio-button ng-value="false">No</md-radio-button>
+        </md-radio-group>
+    </div>
 </div>

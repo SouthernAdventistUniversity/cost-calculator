@@ -1,24 +1,29 @@
 .section_title {
   height: 40px;
-  padding-left: 20px;
+  padding-left: 16px;
   font-weight: 600;
   border-left: 4px solid #3f51b5; }
 
+md-radio-group md-radio-button {
+  margin: 13px 13px 0;
+  font-size: 12px; }
+  md-radio-group md-radio-button .md-off, md-radio-group md-radio-button .md-on {
+    width: 15px !important;
+    height: 15px !important;
+    top: 3px !important;
+    left: 3px !important; }
+
 #tabContent {
-  display: block;
-  padding: 20px; }
-  #tabContent .question {
-    margin-bottom: 20px; }
-    #tabContent .question .text {
-      font-size: 12px; }
-    #tabContent .question md-radio-group md-radio-button {
-      margin: 13px 13px 0;
-      font-size: 12px; }
-      #tabContent .question md-radio-group md-radio-button .md-off, #tabContent .question md-radio-group md-radio-button .md-on {
-        width: 15px !important;
-        height: 15px !important;
-        top: 3px !important;
-        left: 3px !important; }
+  display: block; }
+  #tabContent .sub_text {
+    font-size: 11px;
+    color: #797979; }
+  #tabContent .content_holder {
+    padding: 20px; }
+    #tabContent .content_holder .question {
+      margin-bottom: 20px; }
+      #tabContent .content_holder .question .text {
+        font-size: 12px; }
 
 .prev, .next {
   font-size: 12px;

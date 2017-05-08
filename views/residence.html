@@ -1,0 +1,24 @@
+<div class="section_title" layout="row" layout-align="start center">
+    <span>{{tab.title}}</span>
+</div>
+
+<div class="content_holder">
+    <div class="question">
+        <div class="text">Are you a U.S. citizen or permanent resident?</div>
+        <md-radio-group ng-model="student.isCitizen">
+            <md-radio-button ng-value="true">Yes</md-radio-button>
+            <md-radio-button ng-value="false">No</md-radio-button>
+        </md-radio-group>
+    </div>
+    <div class="question" ng-if="student.isCitizen">
+        <div class="text" style="margin-bottom: 10px">In which state do you currently live?</div>
+        <md-autocomplete md-items="item in querySearch(query)" md-selected-item="student.state" md-search-text="query" md-min-length="0" md-select-on-match="true" md-autoselect="true">
+            <md-item-template>
+                <span class="item-title" md-highlight-text="query" md-highlight-flags="i">{{item}}</span>
+            </md-item-template>
+            <md-not-found>
+                No states matching "{{query}}" were found.
+            </md-not-found>
+        </md-autocomplete>
+    </div>
+</div>
