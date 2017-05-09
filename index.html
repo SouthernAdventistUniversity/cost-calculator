@@ -27,12 +27,12 @@
     <div layout="row" layout-align="space-between center">
         <div></div>
         <div>
-            <md-button class="md-primary md-raised prev" ng-disabled="activeTab == 0" ng-click="activeTab = activeTab - 1">Previous</md-button>
-            <md-button class="md-primary md-raised next" ng-disabled="activeTab == tabs.length - 1" ng-click="activeTab = activeTab + 1">Continue</md-button>
+            <md-button id="prev" class="md-primary md-raised" ng-disabled="activeTab == 0" ng-click="activeTab = activeTab - 1">Previous</md-button>
+            <md-button id="next" class="md-primary md-raised" ng-disabled="activeTab == tabs.length - 1" ng-click="activeTab = activeTab + 1">Continue</md-button>
         </div>
     </div>
 
-    <!-- <pre ng-repeat="(key, value) in student">{{key}}: {{value}}</pre> -->
+
 
 
 

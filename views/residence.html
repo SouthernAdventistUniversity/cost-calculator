@@ -12,7 +12,7 @@
     </div>
     <div class="question" ng-if="student.isCitizen">
         <div class="text" style="margin-bottom: 10px">In which state do you currently live?</div>
-        <md-autocomplete md-items="item in querySearch(query)" md-selected-item="student.state" md-search-text="query" md-min-length="0" md-select-on-match="true" md-autoselect="true">
+        <md-autocomplete md-items="item in querySearch(query)" md-selected-item="student.state" md-search-text="query" md-min-length="0" md-select-on-match="true" md-autoselect="true" placeholder="Add a state">
             <md-item-template>
                 <span class="item-title" md-highlight-text="query" md-highlight-flags="i">{{item}}</span>
             </md-item-template>

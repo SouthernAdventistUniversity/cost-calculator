@@ -1,6 +1,5 @@
 @import '_variables.sass'
 
-
 .section_title
     height: 40px
     padding-left: 16px
@@ -26,6 +25,18 @@ md-radio-group
         color: #797979
     .content_holder
         padding: 20px
+        .equal
+            border-top: 1px solid #797979
+            margin: 5px 0 4px
+        .left
+            width: 80px
+            text-align: right
+            margin-right: 20px
+        .right
+            .section
+                margin-bottom: 20px
+                .title
+                    margin-bottom: 4px
         .question
             margin-bottom: 20px
             .text
@@ -33,10 +44,13 @@ md-radio-group
 
 
 
-.prev
+#prev
     font-size: 12px
     text-transform: initial
     box-shadow: none !important
-.next
-    @extend .prev
+    background-color: $theme-color
+    &[disabled]
+        background-color: rgba(0,0,0,0.12) !important
+#next
+    @extend #prev
     margin-right: 20px

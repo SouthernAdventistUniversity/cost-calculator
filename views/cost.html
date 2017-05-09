@@ -2,4 +2,135 @@
     <span>{{tab.title}}</span>
 </div>
 
-<div class="content_holder"></div>
+<div class="content_holder" ng-if="activeTab == tabs.length - 1" ng-init="calculateCost(student)" layout="row" layout-wrap>
+    <div layout="row" flex="100">
+        <div class="left">${{result.total_annual_cost | number}}</div>
+        <div class="right" flex layout="row" layout-wrap layout-align="space-between center">
+            <div class="section" flex="100">
+                <div class="title" flex="100">Total Cost</div>
+
+                <div layout="row" layout-align="space-between center" flex="100">
+                    <div class="sub_text">Tuition and Fees</div>
+                    <div class="sub_text">${{result.tuition_and_fees | number}}</div>
+                </div>
+                <div layout="row" layout-align="space-between center" flex="100">
+                    <div class="sub_text">Books</div>
+                    <div class="sub_text">${{result.books | number}}</div>
+                </div>
+
+                <div layout="row" layout-align="space-between center" flex="100">
+                    <div class="sub_text">Residence Hall</div>
+                    <div class="sub_text">${{result.residence_hall | number}}</div>
+                </div>
+
+                <div layout="row" layout-align="space-between center" flex="100">
+                    <div class="sub_text">Meal Plan</div>
+                    <div class="sub_text">${{result.meal_plan | number}}</div>
+                </div>
+
+                <div class="equal" flex="100"></div>
+
+                <div layout="row" layout-align="space-between center" flex="100">
+                    <div class="sub_text">Total Estimated Annual Costs</div>
+                    <div class="sub_text">${{result.total_annual_cost | number}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div layout="row" flex="100">
+        <div class="left" layout="row" layout-wrap layout-align="end start">
+            - ${{result.total_financial_aid| number}}
+            <div class="equal" flex="100"></div>
+        </div>
+        <div class="right" flex layout="row" layout-wrap layout-align="space-between center">
+            <div class="section" flex="100">
+                <div class="title" flex="100">Gift Aid</div>
+
+                <div layout="row" layout-align="space-between center" flex="100" ng-if="student.isFreshman">
+                    <div class="sub_text">Freshman Academic Award</div>
+                    <div class="sub_text">${{result.financial_aid_array[0].value | number}}</div>
+                </div>
+                <div layout="row" layout-align="space-between center" flex="100" ng-if="student.isFreshman">
+                    <div class="sub_text">Freshman Southern Union Replacement Scholarship</div>
+                    <div class="sub_text">${{result.financial_aid_array[1].value | number}}</div>
+                </div>
+
+                <div layout="row" layout-align="space-between center" flex="100">
+                    <div class="sub_text">PELL Grant</div>
+                    <div class="sub_text">${{result.pell | number}}</div>
+                </div>
+
+                <div layout="row" layout-align="space-between center" flex="100">
+                    <div class="sub_text">SEOG and Institutional Aid</div>
+                    <div class="sub_text">${{result.seog_inst | number}}</div>
+                </div>
+
+                <div layout="row" layout-align="space-between center" flex="100">
+                    <div class="sub_text">Summer Camp Match</div>
+                    <div class="sub_text">${{result.summer_camp | number}}</div>
+                </div>
+
+                <div class="equal" flex="100"></div>
+
+                <div layout="row" layout-align="space-between center" flex="100">
+                    <div class="sub_text">Total Estimated Annual Costs</div>
+                    <div class="sub_text">${{result.total_financial_aid | number}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div layout="row" flex="100">
+        <div class="left">${{result.estimated_cost_of_attendance | number}}</div>
+        <div class="right" flex layout="row" layout-wrap layout-align="space-between center">
+            <div class="section" flex="100">
+                <div class="title" flex="100">Net Cost</div>
+            </div>
+        </div>
+    </div>
+    <div layout="row" flex="100">
+        <div class="left" layout="row" layout-wrap layout-align="end start">
+            - ${{result.total_other_aid| number}}
+            <div class="equal" flex="100"></div>
+        </div>
+        <div class="right" flex layout="row" layout-wrap layout-align="space-between center">
+            <div class="section" flex="100">
+                <div class="title" flex="100">Work, loans, discounts</div>
+
+                <div layout="row" layout-align="space-between center" flex="100">
+                    <div class="sub_text">Work/Study</div>
+                    <div class="sub_text">${{result.other_work_estimate | number}}</div>
+                </div>
+                <div layout="row" layout-align="space-between center" flex="100">
+                    <div class="sub_text">Stafford Loans</div>
+                    <div class="sub_text">${{result.other_stafford_sub + result.other_stafford_unsub | number}}</div>
+                </div>
+
+                <div layout="row" layout-align="space-between center" flex="100">
+                    <div class="sub_text">Parent PLUS Loan</div>
+                    <div class="sub_text">${{result.other_parent_plus | number}}</div>
+                </div>
+
+                <div layout="row" layout-align="space-between center" flex="100">
+                    <div class="sub_text">Savings by Paying in Advance</div>
+                    <div class="sub_text">${{result.other_paid_in_advance | number}}</div>
+                </div>
+
+                <div class="equal" flex="100"></div>
+
+                <div layout="row" layout-align="space-between center" flex="100">
+                    <div class="sub_text">Total Work and Other Assistance</div>
+                    <div class="sub_text">${{result.total_other_aid | number}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div layout="row" flex="100">
+        <div class="left"><b>${{result.estimated_cost_per_year| number}}</b></div>
+        <div class="right" flex layout="row" layout-wrap layout-align="space-between center">
+            <div class="section" flex="100">
+                <div class="title" flex="100">Remaining out-of-pocket cost</div>
+                <div class="sub_text">Your monthly payment would be <b>${{result.estimated_cost_per_month | number}}</b> for 8 months.</div>
+            </div>
+        </div>
+    </div>
+</div>
