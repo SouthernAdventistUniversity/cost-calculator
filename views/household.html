@@ -3,20 +3,20 @@
 </div>
 
 <div class="content_holder">
-    <div ng-if="!student.isMarried && !student.hasChildren">
+    <div ng-if="!student.IsMarried && !student.IsParent">
         Household Size
         <div class="sub_text">Include yourself, your parents, and your parents' other children under the age of 24.</div>
-        <md-slider min="2" max="20" ng-model="student.household_size" aria-label="household size" step="1" md-discrete></md-slider>
+        <md-slider min="2" max="20" ng-model="student.HouseHoldSize" aria-label="household size" step="1" md-discrete></md-slider>
 
         Household Members Attending College
         <div class="sub_text">Include yourself.</div>
-        <md-slider min="1" max="{{student.household_size}}" ng-model="student.number_in_college" aria-label="household size" step="1" md-discrete></md-slider>
+        <md-slider min="1" max="{{student.HouseHoldSize}}" ng-model="student.NumberInCollege" aria-label="household size" step="1" md-discrete></md-slider>
 
 
         <div class="question">
             <div class="text">What is your family's yearly household income?</div>
             <div class="sub_text">Include income earned by yourself and parents living with you.</div>
-            <md-radio-group ng-model="student.family_income">
+            <md-radio-group ng-model="student.FamilyIncome">
                 <md-radio-button ng-value="20000">Under $30,000</md-radio-button>
                 <md-radio-button ng-value="30000">$30,000 - $39,999</md-radio-button>
                 <md-radio-button ng-value="40000">$40,000 - $49,999</md-radio-button>
@@ -31,17 +31,17 @@
         <div class="question">
             <div class="text">Do your parents work for the Seventh-day Adventist Church?</div>
             <div class="sub_text">If you aren't sure, select No.</div>
-            <md-radio-group ng-model="student.hasSubsidy">
+            <md-radio-group ng-model="student.IsSubsidy">
                 <md-radio-button ng-value="true">Yes</md-radio-button>
                 <md-radio-button ng-value="false">No</md-radio-button>
             </md-radio-group>
         </div>
     </div>
 
-    <div ng-if="student.isMarried || student.hasChildren">
+    <div ng-if="student.IsMarried || student.IsParent">
         <div class="question">
             <div class="text">Will you have a spouse that will also be enrolled in college at least part-time?</div>
-            <md-radio-group ng-model="student.spouse_enrolled">
+            <md-radio-group ng-model="student.isSpouseHalfTime">
                 <md-radio-button ng-value="true">Yes</md-radio-button>
                 <md-radio-button ng-value="false">No</md-radio-button>
             </md-radio-group>
@@ -49,7 +49,7 @@
         <div class="question">
             <div class="text">What is your yearly household income?</div>
             <div class="sub_text">Include income from work, child support, {{student.isMarried ? "your spouse's income," : ''}} and other sources.</div>
-            <md-radio-group ng-model="student.family_income">
+            <md-radio-group ng-model="student.StudentIncome">
                 <md-radio-button ng-value="20000">Under $30,000</md-radio-button>
                 <md-radio-button ng-value="30000">$30,000 - $39,999</md-radio-button>
                 <md-radio-button ng-value="40000">$40,000 - $49,999</md-radio-button>

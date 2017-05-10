@@ -5,26 +5,26 @@
 <div class="content_holder">
     <div class="question">
         <div class="text">Will you be working at a Seventh-day Adventist summer camp the summer before entering college?</div>
-        <md-radio-group ng-model="student.isSDAWorking">
+        <md-radio-group ng-model="student.OtherWork">
             <md-radio-button ng-value="true">Yes</md-radio-button>
             <md-radio-button ng-value="false">No</md-radio-button>
         </md-radio-group>
     </div>
-    <div ng-if="student.isSDAWorking">
+    <div ng-if="student.OtherWork">
         How many weeks?
-        <md-slider min="1" max="52" ng-model="student.weeks_at_camp" aria-label="weeks at summer camp" step="1" md-discrete></md-slider>
+        <md-slider min="1" max="52" ng-model="student.SummerCampWeeks" aria-label="weeks at summer camp" step="1" md-discrete></md-slider>
     </div>
 
     <div class="question">
         <div class="text">Do you plan to work during the summer before entering college?</div>
-        <md-radio-group ng-model="student.isSummerWorking">
+        <md-radio-group ng-model="student.OtherIsSummerWork">
             <md-radio-button ng-value="true">Yes</md-radio-button>
             <md-radio-button ng-value="false">No</md-radio-button>
         </md-radio-group>
     </div>
     <div class="question">
         <div class="text">About how much do you plan on working during the school year?</div>
-        <md-radio-group ng-model="student.weeks_working">
+        <md-radio-group ng-model="student.OtherWorkEstimate">
             <md-radio-button ng-value="0">None</md-radio-button>
             <md-radio-button ng-value="12">12 hours/week</md-radio-button>
             <md-radio-button ng-value="15">15 hours/week</md-radio-button>

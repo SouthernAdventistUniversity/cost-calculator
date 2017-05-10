@@ -1,11 +1,11 @@
 <div class="section_title" layout="row" layout-align="start center">
-    <span ng-if="student.isFreshman">{{tab.title}}</span>
-    <span ng-if="!student.isFreshman">Transfer Information</span>
+    <span ng-if="student.IsFreshman">{{tab.title}}</span>
+    <span ng-if="!student.IsFreshman">Transfer Information</span>
 </div>
 
 <div class="content_holder">
     GPA
-    <md-slider min="0" max="4" ng-model="student.gpa" aria-label="GPA" step=".1" md-discrete></md-slider>
+    <md-slider min="0" max="4" ng-model="student.GPA" aria-label="GPA" step=".1" md-discrete></md-slider>
 
     <div layout="row" layout-align="space-between center">
         <span ng-if="student.test_type">{{student.test_type}} score</span>
@@ -18,23 +18,23 @@
         </div>
     </div>
 
-    <md-slider ng-disabled="!student.test_type" min="{{student.test_type == 'ACT' ? 0 : 400}}" max="{{student.test_type == 'ACT' ? 36 : 1600}}" ng-model="student.test_score" aria-label="Test Score" step="{{student.test_type == 'ACT' ? 1 : 10}}" md-discrete></md-slider>
+    <md-slider ng-model="student.RawActOrSatScore" ng-disabled="!student.test_type" min="{{student.test_type == 'ACT' ? 0 : 400}}" max="{{student.test_type == 'ACT' ? 36 : 1600}}" aria-label="Test Score" step="{{student.test_type == 'ACT' ? 1 : 10}}" md-discrete></md-slider>
 
-    <div class="question" ng-if="student.isFreshman">
+    <div class="question" ng-if="student.IsFreshman">
         <div class="text">From what type of high school will you or did you graduate?</div>
-        <md-radio-group ng-model="student.school_type">
-            <md-radio-button value="sda">Seventh-day Adventist Academy</md-radio-button>
-            <md-radio-button value="public">Public High School</md-radio-button>
-            <md-radio-button value="home">Home School</md-radio-button>
-            <md-radio-button value="private">Private School</md-radio-button>
-            <md-radio-button value="ged">GED</md-radio-button>
+        <md-radio-group ng-model="student.HighSchoolType">
+            <md-radio-button value="sda" ng-click="student.IsSdaHighSchoolGraduate = true">Seventh-day Adventist Academy</md-radio-button>
+            <md-radio-button value="public" ng-click="student.IsSdaHighSchoolGraduate = false">Public High School</md-radio-button>
+            <md-radio-button value="home" ng-click="student.IsSdaHighSchoolGraduate = false">Home School</md-radio-button>
+            <md-radio-button value="private" ng-click="student.IsSdaHighSchoolGraduate = false">Private School</md-radio-button>
+            <md-radio-button value="ged" ng-click="student.IsSdaHighSchoolGraduate = false">GED</md-radio-button>
         </md-radio-group>
     </div>
 
-    <div class="question" ng-if="student.isFreshman">
+    <div class="question" ng-if="student.IsFreshman">
         <div class="text">Have you participated in any of the following leadership roles?</div>
         <div class="sub_text">Senior class president, vice-president, or pastor; student association president, vice-president, religious vice-president, or equivalent</div>
-        <md-radio-group ng-model="student.isLeader">
+        <md-radio-group ng-model="student.IsLeader">
             <md-radio-button ng-value="true">Yes</md-radio-button>
             <md-radio-button ng-value="false">No</md-radio-button>
         </md-radio-group>

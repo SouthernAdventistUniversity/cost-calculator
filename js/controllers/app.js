@@ -9,14 +9,15 @@
 
     function AppController($scope, $http) {
 
-        $scope.activeTab = 5;
+        $scope.activeTab = 0;
         $scope.student = {
-            gpa: 2,
-            test_score: 18,
-            age: 50,
-            household_size: 11,
-            number_in_college: 6,
-            weeks_at_camp: 26
+            GPA: 2,
+            RawActOrSatScore: 18,
+            Age: 50,
+            HouseHoldSize: 11,
+            NumberInCollege: 6,
+            SummerCampWeeks: 26,
+            IsSdaHighSchoolGraduate: false
         };
         $scope.states = ["Alaska", "Alabama", "Arkansas", "American Samoa", "Arizona", "California", "Colorado", "Connecticut", "District of Columbia", "Delaware", "Florida", "Georgia", "Guam", "Hawaii", "Iowa", "Idaho", "Illinois", "Indiana", "Kansas", "Kentucky", "Louisiana", "Massachusetts", "Maryland", "Maine", "Michigan", "Minnesota", "Missouri", "Mississippi", "Montana", "North Carolina", "North Dakota", "Nebraska", "New Hampshire", "New Jersey", "New Mexico", "Nevada", "New York", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Puerto Rico", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Virginia", "Virgin Islands", "Vermont", "Washington", "Wisconsin", "West Virginia", "Wyoming"];
 

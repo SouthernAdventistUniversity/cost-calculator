@@ -5,15 +5,15 @@
 <div class="content_holder">
     <div class="question">
         <div class="text">After graduating from high school, will this be your first year in college?</div>
-        <md-radio-group ng-model="student.isFreshman">
+        <md-radio-group ng-model="student.IsFreshman">
             <md-radio-button ng-value="true">Yes, this is my first year in college.</md-radio-button>
-            <md-radio-button ng-value="false" ng-click="student.school_type = undefined; student.isLeader = undefined">No, I am transferring from another college.</md-radio-button>
+            <md-radio-button ng-value="false" ng-click="student.HighSchoolType = undefined; student.IsLeader = undefined">No, I am transferring from another college.</md-radio-button>
         </md-radio-group>
     </div>
 
     <div class="question">
         <div class="text">Do you plan to live on campus in the residence hall?</div>
-        <md-radio-group ng-model="student.isResident">
+        <md-radio-group ng-model="student.IsResident">
             <md-radio-button ng-value="true">Yes, I will live in the residence hall.</md-radio-button>
             <md-radio-button ng-value="false">No, I will live in the community.</md-radio-button>
         </md-radio-group>

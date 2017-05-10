@@ -4,18 +4,18 @@
 
 <div class="content_holder">
     Age
-    <md-slider min="0" max="100" ng-model="student.age" aria-label="age" step="1" md-discrete></md-slider>
+    <md-slider min="0" max="100" ng-model="student.Age" aria-label="age" step="1" md-discrete></md-slider>
 
     <div class="question">
         <div class="text">Are you married?</div>
-        <md-radio-group ng-model="student.isMarried">
+        <md-radio-group ng-model="student.IsMarried">
             <md-radio-button ng-value="true">Yes</md-radio-button>
             <md-radio-button ng-value="false">No</md-radio-button>
         </md-radio-group>
     </div>
     <div class="question">
         <div class="text">Do you have children or dependents you support?</div>
-        <md-radio-group ng-model="student.hasChildren">
+        <md-radio-group ng-model="student.IsParent">
             <md-radio-button ng-value="true">Yes</md-radio-button>
             <md-radio-button ng-value="false">No</md-radio-button>
         </md-radio-group>
