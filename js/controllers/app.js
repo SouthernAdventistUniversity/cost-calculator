@@ -5,9 +5,9 @@
         .module('CostCalculator')
         .controller('AppController', AppController);
 
-    AppController.inject = ['$scope', '$http'];
+    AppController.inject = ['$scope', '$http', '$sce'];
 
-    function AppController($scope, $http) {
+    function AppController($scope, $http, $sce) {
 
         $scope.activeTab = 0;
         $scope.student = {
@@ -67,8 +67,12 @@
 
         $scope.calculateCost = function(student) {
             console.log(student);
-            $http.post('./php/proxy.php', { parameters: student }).then(function(e) {
-                console.log(e.data.result);
+            //$http.jsonp('./php/proxy.php', { 
+            $http.jsonp($sce.trustAsResourceUrl('https://genesis.intranet.southern.edu:8310/mvc/FinancialAidCalculator/efc/'), { 
+                jsonpCallbackParam: 'callback', 
+                parameters: student 
+            }).then(function(e) {            
+                console.log(e);
                 $scope.result = e.data.result;
             })
         }
